@@ -23,7 +23,7 @@ public class RouteLocatorConfig {
                                         "/milestones/**",
                                         "/projects/**",
                                         "/project-authority/**",
-                                        "/project-status")
+                                        "/project-status/**")
                                 .uri(urlProperties.getTaskUrl())
                 )
                 .build();
