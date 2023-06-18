@@ -16,12 +16,12 @@ public class RouteLocatorConfig {
                 .route("mini-dooray-account-api-1",
                         p -> p.path("/members/**").and()
                                 .weight("mini-dooray-account-api", 50)
-                                .uri(urlProperties.getAccountUrl1())
+                                .uri(urlProperties.getAccount1Url())
                 )
                 .route("mini-dooray-account-api-2",
                         p -> p.path("/members/**").and()
                                 .weight("mini-dooray-account-api", 50)
-                                .uri(urlProperties.getAccountUrl2())
+                                .uri(urlProperties.getAccount2Url())
                 )
                 .route("mini-dooray-task-api-1",
                         p -> p.path("/task/**",
@@ -31,7 +31,7 @@ public class RouteLocatorConfig {
                                         "/project-authority/**",
                                         "/project-status").and()
                                 .weight("mini-dooray-task-api", 50)
-                                .uri(urlProperties.getTaskUrl1())
+                                .uri(urlProperties.getTask1Url())
                 )
                 .route("mini-dooray-task-api-2",
                         p -> p.path("/task/**",
@@ -41,7 +41,7 @@ public class RouteLocatorConfig {
                                         "/project-authority/**",
                                         "/project-status").and()
                                 .weight("mini-dooray-task-api", 50)
-                                .uri(urlProperties.getTaskUrl2())
+                                .uri(urlProperties.getTask2Url())
                 )
                 .build();
     }
