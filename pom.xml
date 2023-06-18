@@ -51,6 +51,7 @@
 	</dependencyManagement>
 
 	<build>
+		<finalName>mini-dooray-gateway</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
