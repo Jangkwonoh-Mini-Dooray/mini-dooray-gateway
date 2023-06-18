@@ -10,8 +10,6 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties(prefix = "backend.server")
 public class UrlProperties {
-    private String account1Url;
-    private String account2Url;
-    private String task1Url;
-    private String task2Url;
+    private String accountUrl;
+    private String taskUrl;
 }

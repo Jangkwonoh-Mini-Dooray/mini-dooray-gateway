@@ -13,35 +13,18 @@ public class RouteLocatorConfig {
     @Bean
     public RouteLocator miniDoorayRoute(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("mini-dooray-account-api-1",
-                        p -> p.path("/members/**").and()
-                                .weight("mini-dooray-account-api", 50)
-                                .uri(urlProperties.getAccount1Url())
+                .route("mini-dooray-account-api",
+                        p -> p.path("/members/**")
+                                .uri(urlProperties.getAccountUrl())
                 )
-                .route("mini-dooray-account-api-2",
-                        p -> p.path("/members/**").and()
-                                .weight("mini-dooray-account-api", 50)
-                                .uri(urlProperties.getAccount2Url())
-                )
-                .route("mini-dooray-task-api-1",
+                .route("mini-dooray-task-api",
                         p -> p.path("/task/**",
                                         "/mentions/**",
                                         "/milestones/**",
                                         "/projects/**",
                                         "/project-authority/**",
-                                        "/project-status").and()
-                                .weight("mini-dooray-task-api", 50)
-                                .uri(urlProperties.getTask1Url())
-                )
-                .route("mini-dooray-task-api-2",
-                        p -> p.path("/task/**",
-                                        "/mentions/**",
-                                        "/milestones/**",
-                                        "/projects/**",
-                                        "/project-authority/**",
-                                        "/project-status").and()
-                                .weight("mini-dooray-task-api", 50)
-                                .uri(urlProperties.getTask2Url())
+                                        "/project-status")
+                                .uri(urlProperties.getTaskUrl())
                 )
                 .build();
     }
