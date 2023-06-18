@@ -13,18 +13,35 @@ public class RouteLocatorConfig {
     @Bean
     public RouteLocator miniDoorayRoute(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("mini-dooray-account-api",
-                        p -> p.path("/members/**")
-                                .uri(urlProperties.getAccountUrl())
+                .route("mini-dooray-account-api-1",
+                        p -> p.path("/members/**").and()
+                                .weight("mini-dooray-account-api", 50)
+                                .uri(urlProperties.getAccountUrl1())
                 )
-                .route("mini-dooray-task-api",
+                .route("mini-dooray-account-api-2",
+                        p -> p.path("/members/**").and()
+                                .weight("mini-dooray-account-api", 50)
+                                .uri(urlProperties.getAccountUrl2())
+                )
+                .route("mini-dooray-task-api-1",
                         p -> p.path("/task/**",
                                         "/mentions/**",
                                         "/milestones/**",
                                         "/projects/**",
                                         "/project-authority/**",
-                                        "/project-status")
-                                .uri(urlProperties.getTaskUrl())
+                                        "/project-status").and()
+                                .weight("mini-dooray-task-api", 50)
+                                .uri(urlProperties.getTaskUrl1())
+                )
+                .route("mini-dooray-task-api-2",
+                        p -> p.path("/task/**",
+                                        "/mentions/**",
+                                        "/milestones/**",
+                                        "/projects/**",
+                                        "/project-authority/**",
+                                        "/project-status").and()
+                                .weight("mini-dooray-task-api", 50)
+                                .uri(urlProperties.getTaskUrl2())
                 )
                 .build();
     }
